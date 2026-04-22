@@ -5,21 +5,21 @@
 class Lt < Formula
   desc "Marine-themed multi-agent workspace manager (Camp Leatherneck — fork of Gas Town)"
   homepage "https://github.com/camp-leatherneck/camp-leatherneck"
-  version "0.1.0-pre.1"
+  version "0.1.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/camp-leatherneck/camp-leatherneck/releases/download/v0.1.0-pre.1/camp-leatherneck_0.1.0-pre.1_darwin_amd64.tar.gz"
-      sha256 "5b424d878e2f5d4fcc331fc3dccd4b6899b86a9f541151ab0412bad75a64230d"
+      url "https://github.com/camp-leatherneck/camp-leatherneck/releases/download/v0.1.0/camp-leatherneck_0.1.0_darwin_amd64.tar.gz"
+      sha256 "a2dc42ee3a9f19c123ec2313f84ffd385b05fc67e55ad0aa998608c5f675a3fe"
 
       define_method(:install) do
         bin.install "lt"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/camp-leatherneck/camp-leatherneck/releases/download/v0.1.0-pre.1/camp-leatherneck_0.1.0-pre.1_darwin_arm64.tar.gz"
-      sha256 "2578f200d7ca7fc78077a218645c3c3de3447615b87d680a7a2db0aa1481e5dd"
+      url "https://github.com/camp-leatherneck/camp-leatherneck/releases/download/v0.1.0/camp-leatherneck_0.1.0_darwin_arm64.tar.gz"
+      sha256 "db2fed73ca9cc4722c15450a52d4a7842629e13ab791dd2cd92e579dbe79866d"
 
       define_method(:install) do
         bin.install "lt"
@@ -29,15 +29,15 @@ class Lt < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/camp-leatherneck/camp-leatherneck/releases/download/v0.1.0-pre.1/camp-leatherneck_0.1.0-pre.1_linux_amd64.tar.gz"
-      sha256 "76cea206e2bb1a6268411735cc9aa7663239f729531443ec45246d01530ca32e"
+      url "https://github.com/camp-leatherneck/camp-leatherneck/releases/download/v0.1.0/camp-leatherneck_0.1.0_linux_amd64.tar.gz"
+      sha256 "36bc5790b10647a6144c22f44e9a6307a2074bddfd989746005f8fc7be7e6bd7"
       define_method(:install) do
         bin.install "lt"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/camp-leatherneck/camp-leatherneck/releases/download/v0.1.0-pre.1/camp-leatherneck_0.1.0-pre.1_linux_arm64.tar.gz"
-      sha256 "3c31d54364fb93c7edf91253a54f3f28c07d046013a9e02dcd7f016e471367dd"
+      url "https://github.com/camp-leatherneck/camp-leatherneck/releases/download/v0.1.0/camp-leatherneck_0.1.0_linux_arm64.tar.gz"
+      sha256 "fd73cd2fd2039954b30b6e806cf8c37b25cc7336b28f5069d37ccdc889ec82f2"
       define_method(:install) do
         bin.install "lt"
       end
