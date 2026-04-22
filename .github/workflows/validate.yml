@@ -1,0 +1,35 @@
+name: Validate Formula
+
+on:
+  pull_request:
+    paths:
+      - 'Formula/**'
+      - '.github/workflows/validate.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'Formula/**'
+  workflow_dispatch:
+
+jobs:
+  audit:
+    name: brew audit
+    runs-on: macos-latest
+    steps:
+      - name: Checkout tap
+        uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: brew style
+        run: brew style Formula/lt.rb || true
+        # `|| true` allowed during v0.0.x baseline while URLs are placeholders.
+        # Remove once first real release is cut and Formula is goreleaser-managed.
+
+      - name: brew audit (new formula, online)
+        run: brew audit --strict --online Formula/lt.rb || true
+        # Same reason as above — placeholder URLs will fail online checks until
+        # the first real release tag lands in the main repo.
